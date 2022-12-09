@@ -24,6 +24,9 @@ Attribute VB_Name = "VersionModule"
 
 
 
+' 008 -
+' 007 - backup copy
+' 006 - starting point with first step and file opener object
 ' 005 - starting to build architecture of the app
 ' 004 - update backup for new option for PCV and some exports shapes
 ' 003 - first version with more visible functionality ! -> shape logic!

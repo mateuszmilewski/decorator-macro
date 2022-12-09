@@ -125,10 +125,11 @@ Public Sub makePCV()
     With shapePCV
         .predefine emodpcv
         
-        Dim d As IFile
-        Set d = New Data
-        d.sRng ThisWorkbook.Sheets("register").Range("h2")
-        .setData d
+        Dim pcv1 As IData
+        Set pcv1 = New PCVData
+        pcv1.setFolder
+        pcv1.refreshConnection
+        
         
         If checkIfThisShapeIsAlreadyExisting(emodpcv) Then
             .connect2 Decorator.G_PCV
@@ -137,14 +138,11 @@ Public Sub makePCV()
         End If
         
         
-        ap
+        ' ap
         .validate
         .group
         .defineOnAction
     End With
-    
-    
-    
     update
 End Sub
 
@@ -373,6 +371,21 @@ Private Function checkIfThisShapeIsAlreadyExisting(e1 As EMOD) As Boolean
     ElseIf e1 = emodRectCorailNN Then
         For Each kij In szejps.Keys
             If szejps(kij).name = "G_" & Decorator.G_NN Then
+                checkIfThisShapeIsAlreadyExisting = True
+                Exit Function
+            End If
+        Next
+        
+    ElseIf e1 = emodpcv Then
+        For Each kij In szejps.Keys
+            If szejps(kij).name = "G_" & Decorator.G_PCV Then
+                checkIfThisShapeIsAlreadyExisting = True
+                Exit Function
+            End If
+        Next
+    ElseIf e1 = emodlook Then
+        For Each kij In szejps.Keys
+            If szejps(kij).name = "G_" & Decorator.G_LOOK Then
                 checkIfThisShapeIsAlreadyExisting = True
                 Exit Function
             End If

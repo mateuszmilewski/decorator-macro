@@ -1,4 +1,4 @@
-Attribute VB_Name = "MainModule"
+Attribute VB_Name = "GetPathModuleModule"
 'The MIT License (MIT)
 '
 'Copyright (c) 2022 FORREST
@@ -25,33 +25,7 @@ Attribute VB_Name = "MainModule"
 
 
 
-' very first step ! - open some files
-' ==================================================
-
-Private Sub tryToOpenFile()
+Public Function myPath() As String
     
-    ' general opener - no need to specify anything - macro should recognize file by itself
-    Dim fo As FileOpener, f As New Factory, fi As IFile, fis As Variant
-    Set fo = f.newFileOpener()
-    fo.openOneFile
-    
-    If fo.dataAvailable Then
-        Set fi = fo.passOpenedFiles
-    End If
-End Sub
-
-Private Sub tryToOpenManyFiles()
-    
-    ' maybe just take all file at once
-    Dim fo As FileOpener, f As New Factory, fi As IFile
-    Set fo = f.newFileOpener()
-    fo.openManyFiles
-    
-    If fo.dataAvailable Then
-        Set fis = fo.passOpenedFiles
-    End If
-End Sub
-
-
-
-' ==================================================
+    myPath = ThisWorkbook.Path
+End Function
