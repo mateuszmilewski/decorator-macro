@@ -87,14 +87,14 @@ Private Sub import_this_project()
     Set VBProj = ThisWorkbook.VBProject
     Set VBComps = VBProj.VBComponents
     
-    For Each objFile In objFSO.GetFolder(REPO_PATH).Files
+    For Each objFile In objFSO.getFolder(REPO_PATH).Files
         ' body
         ' ==============================================================
         
         If (objFSO.GetExtensionName(objFile.name) = "cls") Or _
             (objFSO.GetExtensionName(objFile.name) = "frm") Or _
             (objFSO.GetExtensionName(objFile.name) = "bas") Then
-            VBComps.Import objFile.Path
+            VBComps.import objFile.Path
         End If
         
         ' ==============================================================

@@ -1,4 +1,12 @@
-Attribute VB_Name = "MainModule"
+VERSION 1.0 CLASS
+BEGIN
+  MultiUse = -1  'True
+END
+Attribute VB_Name = "IData"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = False
+Attribute VB_Exposed = False
 'The MIT License (MIT)
 '
 'Copyright (c) 2022 FORREST
@@ -24,34 +32,12 @@ Attribute VB_Name = "MainModule"
 
 
 
+Public Property Get sourceFolder() As Folder
+End Property
 
-' very first step ! - open some files
-' ==================================================
-
-Private Sub tryToOpenFile()
-    
-    ' general opener - no need to specify anything - macro should recognize file by itself
-    Dim fo As FileOpener, f As New Factory, fi As IFile, fis As Variant
-    Set fo = f.newFileOpener()
-    fo.openOneFile
-    
-    If fo.dataAvailable Then
-        Set fi = fo.passOpenedFiles
-    End If
-End Sub
-
-Private Sub tryToOpenManyFiles()
-    
-    ' maybe just take all file at once
-    Dim fo As FileOpener, f As New Factory, fi As IFile
-    Set fo = f.newFileOpener()
-    fo.openManyFiles
-    
-    If fo.dataAvailable Then
-        Set fis = fo.passOpenedFiles
-    End If
+Public Sub setFolder()
 End Sub
 
 
-
-' ==================================================
+Public Sub refreshConnection()
+End Sub

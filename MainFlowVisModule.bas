@@ -86,7 +86,7 @@ End Sub
 Public Sub makePCV()
 
     ' artificial progress
-    ap
+    ' ap
 
 
     Dim flowSh As Worksheet
@@ -100,6 +100,9 @@ Public Sub makePCV()
     shs.makePCV
     
     Set shs = Nothing
+    
+    
+    MsgBox "PCV data processing done!", vbInformation
 End Sub
 
 
